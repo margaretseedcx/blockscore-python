@@ -53,9 +53,10 @@ class Watchlists():
     }
     return self.client.get(WATCHLISTS_CANDIDATE_URI, body)
 
-  def search(self, watchlists_candidate_id, match_type=None):
+  def search(self, watchlists_candidate_id, match_type=None, similarity_threshold=None):
     body = {
       'candidate_id': watchlists_candidate_id,
-      'match_type': match_type
+      'match_type': match_type,
+      'similarity_threshold': similarity_threshold
     }
     return self.client.post(WATCHLISTS_SEARCH_URI, body)
